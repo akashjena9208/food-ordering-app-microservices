@@ -1,4 +1,10 @@
 package com.akash.food.restaurant.repository;
 
-public interface RestaurantRepository extends org.springframework.data.jpa.repository.JpaRepository<com.akash.food.restaurant.entities.Restaurant, java.lang.String> {
-  }
+import com.akash.food.restaurant.entities.Restaurant;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface RestaurantRepository extends JpaRepository<Restaurant, String> {
+    List<Restaurant> findByNameContainingIgnoreCase(String name);
+}

@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/restrurent-service
+    url: jdbc:postgresql://localhost:5432/restaurant_service
     username: postgres
     password: Akash@2002
     driver-class-name: org.postgresql.Driver
@@ -15,4 +15,12 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 server:
-  port: 8089
+  port: 9091
+
+resilience4j:
+  ratelimiter:
+    instances:
+      get-all-restaurant-rate-limiter:
+        limitForPeriod: 5
+        limitRefreshPeriod: 1s
+        timeoutDuration: 500ms
