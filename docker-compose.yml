@@ -2,30 +2,8 @@
 
 version: '3.8'
 
-services:
-  mysql-db: #name of service
-    image: mysql:8.0
-    container_name: mysql-container 
-    environment:
-      MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: categorydb
-      MYSQL_USER: user
-      MYSQL_PASSWORD: user123 
-    ports:
-     - "3307:3306"
-    volumes:
-      - ./mysql-data:/var/lib/mysql
+services: 
 
-# php my admin service: db client
-  phpmyadmin:
-    image: phpmyadmin:latest
-    container_name: phpmyadmin
-    environment:
-      PMA_HOST: mysql-db     
-    ports:
-      - "8081:80"
-    depends_on:
-      - mysql-db
 
 
 # PostgreSQL Service
@@ -35,7 +13,7 @@ services:
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: user123
-      POSTGRES_DB: coursedb
+      POSTGRES_DB: restaurantdb
     ports:
       - "5432:5432"
     volumes:
@@ -75,6 +53,5 @@ services:
       - mongo
 
 volumes:
-  mysql-data:
   postgres-data:
   mongo-data:
