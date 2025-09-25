@@ -1,41 +1,39 @@
+# Go to project root
 cd "D:/Micro Service Project/food-ordering-app"
 
-# Initialize git (only once)
+# Initialize git (only if not already done)
 git init
 
-# Add remote repo (only once)
+# Add remote repo (only if not already added)
 git remote add origin https://github.com/akashjena9208/food-ordering-app-microservices.git
 
 # Check remote
 git remote -v
 
+# Pull latest changes to avoid push conflicts
+git pull origin main --rebase
 
-# Go to project root
-cd "D:/Micro Service Project/food-ordering-app"
-
-# Check changes
-git status
-
-# Stage the service you worked on
-git add user-service/
-👉 Replace user-service with:
-restaurant-service/
-order-service/
-payment-service/
-delivery-service/
-api-gateway/
-config-server/
-
+# Stage your first service (replace with actual service name)
+git add restaurant-service/
 
 # Commit with a clear message
-git commit -m "Added user-service initial setup"
+git commit -m "Added restaurant-service initial setup"
 
-# Push to GitHub
+# Push changes to remote
 git push origin main
 
-# Add Another Service (order-service)
-cd "D:/Micro Service Project/food-ordering-app"
-git status
+# ------------------------------
+# Repeat for other services
+# ------------------------------
+
+# Stage next service
 git add order-service/
+
+# Commit changes
 git commit -m "Added order-service initial setup"
+
+# Pull remote changes first (to avoid conflicts)
+git pull origin main --rebase
+
+# Push changes
 git push origin main
